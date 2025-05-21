@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+    function tahunKeAbad(tahun) {
+      // Validasi input
+      if (typeof tahun !== 'number' || tahun < 1 || !Number.isInteger(tahun)) {
+        throw new Error("Input harus bilangan bulat positif");
+      }
+
+      // Hitung abad
+      return Math.ceil(tahun / 100);
+    }
+
+    // Contoh penggunaan:
+    console.log(tahunKeAbad(1905));  // Output: 20
+
+  </script>
+</body>
+
+</html>
