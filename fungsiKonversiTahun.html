@@ -1,22 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hitung Abad</title>
+</head>
 
 <body>
+
+  <h1>Hasil Penghitungan Abad</h1>
+  <div id="output"></div>
+
   <script>
-    function tahunKeAbad(tahun) {
-      // Validasi input
-      if (typeof tahun !== 'number' || tahun < 1 || !Number.isInteger(tahun)) {
+    /**
+     * Menghitung abad untuk suatu tahun:
+     * - Tahun 1–100  → abad 1
+     * - Tahun 101–200 → abad 2
+     * - dst.
+     */
+    function hitungAbad(tahun) {
+      if (typeof tahun !== 'number' || !Number.isInteger(tahun) || tahun < 1) {
         throw new Error("Input harus bilangan bulat positif");
       }
-
-      // Hitung abad
       return Math.ceil(tahun / 100);
     }
 
     // Contoh penggunaan:
-    console.log(tahunKeAbad(1905));  // Output: 20
+    const tahunContoh = [1905, 1700]
+    const out = document.getElementById('output');
 
+    tahunContoh.forEach(t => {
+      try {
+        const abad = hitungAbad(t);
+        const p = document.createElement('p');
+        p.textContent = `Tahun ${t} → Abad ke-${abad}`;
+        out.appendChild(p);
+      } catch (e) {
+        const p = document.createElement('p');
+        p.textContent = `Tahun ${t} → Error: ${e.message}`;
+        p.style.color = 'red';
+        out.appendChild(p);
+      }
+    });
   </script>
+
 </body>
 
 </html>

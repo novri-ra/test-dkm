@@ -2,18 +2,15 @@
 <html>
 
 <body>
-  <script>
+  <h1>Hasil Faktorial</h1>
+  <p>3! = <span id="fak3"></span></p>
 
+  <script>
     function factorial(n) {
-      // Validasi input
       if (n < 0 || !Number.isInteger(n)) {
         throw new Error("Input harus bilangan bulat non-negatif");
       }
-
-      // Basis kasus
       if (n === 0 || n === 1) return 1;
-
-      // Hitung faktorial
       let result = 1;
       for (let i = 2; i <= n; i++) {
         result *= i;
@@ -21,10 +18,8 @@
       return result;
     }
 
-    // Contoh penggunaan:
-    console.log(factorial(3));  // Output: 6
-    console.log(factorial(5));  // Output: 120
-
+    // Tampilkan di halaman
+    document.getElementById('fak3').textContent = factorial(3);
   </script>
 </body>
 
